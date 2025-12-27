@@ -7,18 +7,26 @@ function placeBet() {
 
   user.coin -= 1000;
 
-  let win = Math.random() < 0.05; // demo win
-  let result = win ? (type === "2D" ? 80000 : 500000) : 0;
+  // 🔹 Real Result (Demo)
+  let resultNumber = type === "2D" 
+    ? Math.floor(Math.random()*100).toString().padStart(2,'0')
+    : Math.floor(Math.random()*1000).toString().padStart(3,'0');
 
-  if (win) alert("🎉 You Win! Prize: " + result);
+  let win = num === resultNumber;
+  let prize = 0;
+  if (win) prize = type === "2D" ? 80000 : 500000;
 
-  if (win) user.coin += result;
+  if (win) alert(`🎉 You Win! Number: ${resultNumber}, Prize: ${prize} coin`);
+  else alert(`❌ Lost! Number was ${resultNumber}`);
+
+  user.coin += prize;
 
   user.history.push({
     number: num,
     type: type,
     win: win,
-    prize: result,
+    prize: prize,
+    resultNumber: resultNumber,
     time: new Date().toLocaleString()
   });
 
