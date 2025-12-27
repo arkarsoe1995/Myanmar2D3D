@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/menu.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2D 3D Lottery</title>
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/menu.css">
 </head>
 <body>
 
@@ -13,11 +13,7 @@
   <div class="top-left">
     <span class="site-name">2D 3D Lottery</span>
   </div>
-  
-  <div class="top-center">
-    <!-- Empty for now -->
-  </div>
-  
+  <div class="top-center"></div>
   <div class="top-right">
     <span class="user-name" id="userName">User</span>
     <span class="user-coin" id="userCoin">💰 0</span>
@@ -26,16 +22,22 @@
 
 <div id="pages">
 
-  <!-- Home -->
+  <!-- Home / Bet Section -->
   <section id="page-home" class="page active">
     <h3>🎯 Bet 2D / 3D</h3>
     <div class="bet-card">
       <input id="betNumber" placeholder="Enter Number">
+      
       <select id="betType">
         <option value="2D">2D</option>
         <option value="3D">3D</option>
       </select>
-      <button onclick="placeBet()">Bet 1000 Coin</button>
+      
+      <!-- User-defined Coin Amount -->
+      <input type="number" id="betAmount" placeholder="Enter Coin (100-10000)" 
+             min="100" max="10000" value="100">
+      
+      <button onclick="placeBet()">Place Bet</button>
       <button onclick="watchAds()">🎬 Watch Ads +5000 Coin</button>
     </div>
 
@@ -84,5 +86,6 @@ function showPage(p) {
   if (p === "rank") showRank();
 }
 </script>
+
 </body>
 </html>
