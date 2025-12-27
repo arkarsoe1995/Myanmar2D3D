@@ -7,14 +7,13 @@ function placeBet() {
 
   user.coin -= 1000;
 
-  // 🔹 Real Result (Demo)
-  let resultNumber = type === "2D" 
+  // Random result
+  let resultNumber = type === "2D"
     ? Math.floor(Math.random()*100).toString().padStart(2,'0')
     : Math.floor(Math.random()*1000).toString().padStart(3,'0');
 
   let win = num === resultNumber;
-  let prize = 0;
-  if (win) prize = type === "2D" ? 80000 : 500000;
+  let prize = win ? (type === "2D" ? 80000 : 500000) : 0;
 
   if (win) alert(`🎉 You Win! Number: ${resultNumber}, Prize: ${prize} coin`);
   else alert(`❌ Lost! Number was ${resultNumber}`);
@@ -39,7 +38,7 @@ function renderHistory() {
   history.innerHTML = "";
   user.history.slice().reverse().forEach(h => {
     let li = document.createElement("li");
-    li.innerText = `${h.type} - ${h.number} | ${h.win ? "WIN" : "LOSE"}`;
+    li.innerText = `${h.type} - ${h.number} | ${h.win ? "WIN" : "LOSE"} | Prize: ${h.prize}`;
     history.appendChild(li);
   });
 }
