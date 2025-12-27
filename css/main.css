@@ -1,73 +1,101 @@
-* { box-sizing: border-box; }
-body { margin:0; background:#111; color:white; font-family:system-ui,sans-serif; }
-
-/* Auth box */
-.auth-box { max-width:350px; margin:100px auto; padding:20px; background:#1e1e1e; border-radius:12px; text-align:center;}
-.auth-box input, .auth-box select { width:100%; padding:10px; margin:10px 0; border-radius:8px; border:none; font-size:16px;}
-.auth-box button { width:100%; padding:12px; border:none; border-radius:8px; background:gold; font-weight:bold; font-size:16px; cursor:pointer;}
-a { color:gold; text-decoration:none; }
-
-/* Top bar */
-.top-bar {
-  display: flex;
-  justify-content: space-between; /* left / center / right spacing */
-  align-items: center;
-  padding: 10px 16px;
-  background: linear-gradient(90deg, #1e1e1e, #333);
-  border-bottom: 1px solid #444;
-  border-radius: 0 0 15px 15px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
-  height: 60px; /* not too tall */
+body {
+  margin: 0;
+  font-family: system-ui;
+  background: #111;
   color: #fff;
-  font-family: system-ui, sans-serif;
 }
 
-.top-left .site-name {
+.page {
+  display: none;
+  padding: 15px;
+  padding-bottom: 90px;
+}
+
+.page.active {
+  display: block;
+}
+
+.top-bar {
+  height: 60px;
+  background: #1e1e1e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+}
+
+.site-name {
+  color: gold;
   font-weight: bold;
   font-size: 18px;
-  color: gold; /* website name color */
 }
 
-.top-right {
-  text-align: right;
-  display: flex;
-  flex-direction: column; /* username on top, coin below */
-}
-
-.top-right .user-name {
+.user-name {
   font-weight: bold;
-  font-size: 16px;
-  color: #fff;
 }
 
-.top-right .user-coin {
+.user-coin {
   font-size: 14px;
-  color: #ffd700cc; /* coin color, smaller */
-  margin-top: 2px;
+  color: gold;
 }
-/* Page Cards */
-.page { display:none; padding:15px; }
-.page.active { display:block; }
 
-.bet-card { background:#1e1e1e; padding:16px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.4); margin-bottom:20px; }
-.page input, .page select, .page button { margin:8px 0; }
+/* BET CARD */
+.bet-card {
+  background: #222;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
 
-/* History */
-#history { max-height:200px; overflow-y:auto; padding-left:0; list-style:none; }
-#history li { padding:6px 10px; margin:4px 0; border-radius:8px; background:#2a2a2a; display:flex; justify-content:space-between; transition:0.3s; }
-#history li:hover { background:#3a3a3a; }
+.bet-card input,
+.bet-card select,
+.bet-card button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border-radius: 8px;
+  border: none;
+}
 
-/* iframe */
-iframe { width:100%; height:70vh; border:none; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.4); margin-bottom:20px; }
+.bet-card button {
+  background: gold;
+  font-weight: bold;
+}
 
-/* Bottom menu */
-.bottom-menu { position:fixed; bottom:0; width:100%; display:flex; background:#222; box-shadow:0 -2px 6px rgba(0,0,0,0.5); border-radius:15px 15px 0 0; overflow:hidden; }
-.bottom-menu button { flex:1; padding:12px 0; font-size:22px; color:#aaa; background:none; border:none; transition:0.3s; cursor:pointer;}
-.bottom-menu button.active { color:gold; background:#333; }
+/* PROFILE */
+.profile-card {
+  background: #222;
+  padding: 20px;
+  border-radius: 12px;
+}
 
-/* Responsive */
-@media (max-width:480px){
-  .top-bar { font-size:14px; padding:10px; }
-  .bottom-menu button { font-size:20px; }
-  .bet-card { padding:12px; }
+/* BOTTOM MENU */
+.bottom-menu {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 65px;
+  background: #1e1e1e;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid #333;
+}
+
+.bottom-menu button {
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: #aaa;
+}
+
+.home-btn {
+  width: 56px;
+  height: 56px;
+  background: gold;
+  color: #000;
+  border-radius: 50%;
+  margin-top: -25px;
+  font-size: 26px;
 }
