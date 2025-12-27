@@ -1,1 +1,38 @@
+body {
+  margin: 0;
+  background: #111;
+  color: white;
+  font-family: sans-serif;
+}
 
+.auth-box {
+  width: 90%;
+  max-width: 350px;
+  margin: 100px auto;
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.auth-box input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: none;
+}
+
+.auth-box button {
+  width: 100%;
+  padding: 10px;
+  background: gold;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+a {
+  color: gold;
+  text-decoration: none;
+}
