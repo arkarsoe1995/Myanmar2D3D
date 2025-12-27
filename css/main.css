@@ -8,9 +8,43 @@ body { margin:0; background:#111; color:white; font-family:system-ui,sans-serif;
 a { color:gold; text-decoration:none; }
 
 /* Top bar */
-.top-bar { display:flex; justify-content:space-between; align-items:center; padding:12px 16px; background:linear-gradient(90deg,#1e1e1e,#333); border-bottom:1px solid #444; border-radius:0 0 15px 15px; box-shadow:0 2px 6px rgba(0,0,0,0.5);}
-#userCoin { background:#ffd70033; padding:4px 8px; border-radius:8px; }
+.top-bar {
+  display: flex;
+  justify-content: space-between; /* left / center / right spacing */
+  align-items: center;
+  padding: 10px 16px;
+  background: linear-gradient(90deg, #1e1e1e, #333);
+  border-bottom: 1px solid #444;
+  border-radius: 0 0 15px 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  height: 60px; /* not too tall */
+  color: #fff;
+  font-family: system-ui, sans-serif;
+}
 
+.top-left .site-name {
+  font-weight: bold;
+  font-size: 18px;
+  color: gold; /* website name color */
+}
+
+.top-right {
+  text-align: right;
+  display: flex;
+  flex-direction: column; /* username on top, coin below */
+}
+
+.top-right .user-name {
+  font-weight: bold;
+  font-size: 16px;
+  color: #fff;
+}
+
+.top-right .user-coin {
+  font-size: 14px;
+  color: #ffd700cc; /* coin color, smaller */
+  margin-top: 2px;
+}
 /* Page Cards */
 .page { display:none; padding:15px; }
 .page.active { display:block; }
