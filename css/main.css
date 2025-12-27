@@ -1,38 +1,27 @@
-body {
-  margin: 0;
-  background: #111;
-  color: white;
-  font-family: sans-serif;
-}
+* { box-sizing: border-box; }
+body { margin:0; background:#111; color:white; font-family:system-ui,sans-serif; }
 
-.auth-box {
-  width: 90%;
-  max-width: 350px;
-  margin: 100px auto;
-  background: #1e1e1e;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-}
+/* Auth box */
+.auth-box { max-width:350px; margin:100px auto; padding:20px; background:#1e1e1e; border-radius:10px; text-align:center;}
+.auth-box input, .auth-box select { width:100%; padding:10px; margin:10px 0; border-radius:5px; border:none; font-size:16px;}
+.auth-box button { width:100%; padding:10px; border:none; border-radius:5px; background:gold; font-weight:bold; font-size:16px;}
+a { color:gold; text-decoration:none; }
 
-.auth-box input {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 5px;
-  border: none;
-}
+/* Top bar */
+.top-bar { display:flex; flex-direction:column; text-align:center; padding:10px; gap:4px; background:#222;}
+.page input, .page select, .page button { width:100%; padding:12px; margin:8px 0; font-size:16px;}
+#history { font-size:14px; padding-left:15px;}
+iframe { max-width:100%; height:65vh;}
+.page { display:none; padding:15px; }
+.page.active { display:block;}
 
-.auth-box button {
-  width: 100%;
-  padding: 10px;
-  background: gold;
-  border: none;
-  border-radius: 5px;
-  font-weight: bold;
-}
+/* Bottom menu */
+.bottom-menu { position:fixed; bottom:0; width:100%; display:flex; background:#222;}
+.bottom-menu button { flex:1; padding:12px 0; font-size:22px; background:none; border:none; color:white;}
 
-a {
-  color: gold;
-  text-decoration: none;
+/* Desktop / Tablet */
+@media (min-width:768px){
+.top-bar { flex-direction:row; justify-content:space-between;}
+.page { max-width:700px; margin:auto;}
+.bottom-menu { max-width:700px; left:50%; transform:translateX(-50%);}
 }
