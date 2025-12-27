@@ -1,5 +1,4 @@
 function showRank() {
-  rankList.innerHTML = `
-    <p>${user.name} - 💰 ${user.coin}</p>
-  `;
+  const rankList = document.getElementById("rankList");
+  rankList.innerHTML = `<p>${user.name} - 💰 ${user.coin}</p>`;
 }
