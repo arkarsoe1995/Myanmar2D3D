@@ -5,40 +5,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>2D 3D Lottery</title>
 <link rel="stylesheet" href="css/main.css">
-<link rel="stylesheet" href="css/menu.css">
 </head>
+
 <body>
 
+<!-- TOP BAR -->
 <div class="top-bar">
   <div class="top-left">
     <span class="site-name">2D 3D Lottery</span>
   </div>
-  <div class="top-center"></div>
   <div class="top-right">
-    <span class="user-name" id="userName">User</span>
-    <span class="user-coin" id="userCoin">💰 0</span>
+    <span class="user-name" id="userName"></span>
+    <span class="user-coin" id="userCoin"></span>
   </div>
 </div>
 
+<!-- PAGES -->
 <div id="pages">
 
-  <!-- Home / Bet Section -->
   <section id="page-home" class="page active">
-    <h3>🎯 Bet 2D / 3D</h3>
+    <h3>🎯 2D / 3D Bet</h3>
+
     <div class="bet-card">
       <input id="betNumber" placeholder="Enter Number">
-      
       <select id="betType">
         <option value="2D">2D</option>
         <option value="3D">3D</option>
       </select>
-      
-      <!-- User-defined Coin Amount -->
-      <input type="number" id="betAmount" placeholder="Enter Coin (100-10000)" 
-             min="100" max="10000" value="100">
-      
+
+      <input type="number" id="betAmount" min="100" max="10000" value="100">
+
       <button onclick="placeBet()">Place Bet</button>
-      <button onclick="watchAds()">🎬 Watch Ads +5000 Coin</button>
+      <button onclick="watchAds()">Watch Ads +5000</button>
     </div>
 
     <div class="bet-card">
@@ -47,43 +45,52 @@
     </div>
   </section>
 
-  <!-- 2D Live -->
   <section id="page-2d" class="page">
     <iframe src="pages/live2d.html"></iframe>
   </section>
 
-  <!-- 3D Calendar -->
   <section id="page-3d" class="page">
     <iframe src="pages/cal3d.html"></iframe>
   </section>
 
-  <!-- Rank -->
   <section id="page-rank" class="page">
     <h3>🏆 Rank</h3>
     <div id="rankList"></div>
   </section>
 
+  <section id="page-profile" class="page">
+    <h3>👤 Profile</h3>
+    <div class="profile-card">
+      <p>Username: <span id="profileName"></span></p>
+      <p>Coin: <span id="profileCoin"></span></p>
+      <button onclick="logout()">Logout</button>
+    </div>
+  </section>
+
 </div>
 
+<!-- BOTTOM MENU -->
 <div class="bottom-menu">
-  <button onclick="showPage('home')">🏠</button>
   <button onclick="showPage('2d')">📊</button>
   <button onclick="showPage('3d')">📅</button>
+
+  <button class="home-btn" onclick="showPage('home')">🏠</button>
+
   <button onclick="showPage('rank')">🏆</button>
+  <button onclick="showPage('profile')">👤</button>
 </div>
 
 <script src="js/coin.js"></script>
 <script src="js/bet.js"></script>
 <script src="js/rank.js"></script>
+
 <script>
 function showPage(p) {
   document.querySelectorAll(".page").forEach(x => x.classList.remove("active"));
   document.getElementById("page-" + p).classList.add("active");
 
-  document.querySelectorAll(".bottom-menu button").forEach(b => b.classList.remove("active"));
-  document.querySelector(`.bottom-menu button[onclick="showPage('${p}')"]`).classList.add("active");
-
   if (p === "rank") showRank();
+  if (p === "profile") loadProfile();
 }
 </script>
 
