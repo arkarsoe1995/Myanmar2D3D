@@ -20,16 +20,20 @@
   <!-- Home -->
   <section id="page-home" class="page active">
     <h3>🎯 Bet 2D / 3D</h3>
-    <input id="betNumber" placeholder="Enter Number">
-    <select id="betType">
-      <option value="2D">2D</option>
-      <option value="3D">3D</option>
-    </select>
-    <button onclick="placeBet()">Bet 1000 Coin</button>
-    <button onclick="watchAds()">🎬 Watch Ads +5000 Coin</button>
+    <div class="bet-card">
+      <input id="betNumber" placeholder="Enter Number">
+      <select id="betType">
+        <option value="2D">2D</option>
+        <option value="3D">3D</option>
+      </select>
+      <button onclick="placeBet()">Bet 1000 Coin</button>
+      <button onclick="watchAds()">🎬 Watch Ads +5000 Coin</button>
+    </div>
 
-    <h4>📜 History</h4>
-    <ul id="history"></ul>
+    <div class="bet-card">
+      <h4>📜 History</h4>
+      <ul id="history"></ul>
+    </div>
   </section>
 
   <!-- 2D Live -->
@@ -64,6 +68,10 @@
 function showPage(p) {
   document.querySelectorAll(".page").forEach(x => x.classList.remove("active"));
   document.getElementById("page-" + p).classList.add("active");
+
+  document.querySelectorAll(".bottom-menu button").forEach(b => b.classList.remove("active"));
+  document.querySelector(`.bottom-menu button[onclick="showPage('${p}')"]`).classList.add("active");
+
   if (p === "rank") showRank();
 }
 </script>
