@@ -1,33 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/menu.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
-<!-- Top Bar -->
 <div class="top-bar">
   <span id="siteName">2D 3D Lottery</span>
   <span id="userName"></span>
   <span id="userCoin"></span>
 </div>
 
-<!-- Pages -->
 <div id="pages">
 
   <!-- Home -->
   <section id="page-home" class="page active">
     <h3>🎯 Bet 2D / 3D</h3>
-
     <input id="betNumber" placeholder="Enter Number">
     <select id="betType">
       <option value="2D">2D</option>
       <option value="3D">3D</option>
     </select>
-
     <button onclick="placeBet()">Bet 1000 Coin</button>
 
     <h4>📜 History</h4>
@@ -52,7 +49,6 @@
 
 </div>
 
-<!-- Bottom Menu -->
 <div class="bottom-menu">
   <button onclick="showPage('home')">🏠</button>
   <button onclick="showPage('2d')">📊</button>
@@ -63,15 +59,12 @@
 <script src="js/coin.js"></script>
 <script src="js/bet.js"></script>
 <script src="js/rank.js"></script>
-
-  <script>
+<script>
 function showPage(p) {
   document.querySelectorAll(".page").forEach(x => x.classList.remove("active"));
   document.getElementById("page-" + p).classList.add("active");
-
   if (p === "rank") showRank();
 }
-  </script>
-
+</script>
 </body>
 </html>
